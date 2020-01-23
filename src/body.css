@@ -1,0 +1,67 @@
+.container-fluid{
+   overflow-x: hidden; 
+}
+ span:before{
+    color:black;
+    font-size: 50px;
+    padding: 0;
+    margin: 0;
+    content: '';
+    animation-name: head;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+ }
+
+@keyframes head {
+    0% {content: 'Food Lover?';}
+    20% {content: 'Wanna Have Fun?';}
+    40% {content: 'Looking For Party Places?';}
+    60% {content: 'Finding Delicious Food?';}
+    80% {content: 'Game Night?';}
+    100%{content: 'Live Music?';}
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .quote h2{
+    color: black;
+    }
+.simple-text{
+    font-size:25px;
+    color: black;
+}
+.quote a:hover{
+    font-size:25px;
+    color: goldenrod;
+}
