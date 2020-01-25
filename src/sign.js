@@ -73,7 +73,7 @@ export default class Sign extends Component {
                       <p>Username</p>
                       <input onChange={this.handleChange("name")} type="text" className="form-control" placeholder="Enter Username" value={name}/>
                       <p>Email</p>
-                      <input onChange={this.handleChange("email")} type="text" className="form-control" placeholder="Enter Email" value={email}/>
+                      <input onChange={this.handleChange("email")} type="text" maxLength="20" className="form-control" placeholder="Enter Email" value={email}/>
                       <p>Phone Number</p>
                       <input onChange={this.handleChange("phone")} type="text" className="form-control" placeholder="Enter Phone Number" value={phone}/>
                       <p>Password</p>

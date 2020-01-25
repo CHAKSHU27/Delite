@@ -1,14 +1,14 @@
 require('dotenv').config()
 const Restaurant=require("../models/restaurant");
-const fs=require('fs')
+// const fs=require('fs')
 exports.restDetails= async(req,res)=>{
     const restExists=await Restaurant.findOne({email:req.body.email})
     if(restExists) return res.status(403).json({
         error:"Email is already in use"
     })
-    const Exists=await Restaurant.findOne({phone:req.body.phone})
+    const Exists=await Restaurant.findOne({number:req.body.phone})
     if(Exists) return res.status(403).json({
-        error:"Phone number already in use"
+        error:"Mobile number already in use"
     })
     const newRest = await new Restaurant(req.body)
     await newRest.save()

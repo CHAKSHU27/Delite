@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './logSign.css';
-import {Redirect} from 'react-router-dom';
+// import {Redirect} from 'react-router-dom';
 class Login extends Component
 {
   constructor(props)
@@ -76,7 +76,7 @@ this.authenticate(data,()=>{
                     </div>
                     <form>
                       <p>Email</p>
-                      <input onChange={this.handleChange("email")} type="text" className="form-control" placeholder="Enter Email" value={email}/>
+                      <input onChange={this.handleChange("email")} type="text" maxLength="30" className="form-control" placeholder="Enter Email" value={email}/>
                       <p>Password</p>
                       <input onChange={this.handleChange("password")} type="password" className="form-control" placeholder="Enter Password" value={password} />
                       <input onClick={this.clickSubmit} type="submit" value="Login" className="button"/>

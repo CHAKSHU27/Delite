@@ -10,7 +10,7 @@ const restSchema=new mongoose.Schema({
         trim:true,
         required:true
     },
-    City:{
+    city:{
         type:String,
         trim:true,
         required:true

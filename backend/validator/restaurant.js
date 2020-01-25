@@ -18,7 +18,7 @@ exports.restDetailsValidator=(req,res,next)=>{
         min:4,
         max:2000
     });
-    req.check('phone','Phone number must be of 10')
+    req.check('number','Mobile number must be of 10 digits')
     .isLength({
         min:10,
         max:10

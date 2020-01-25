@@ -110,7 +110,7 @@ export default class Rest extends Component
                   <p>Mobile Number</p>
                   <input onChange={this.handleChange("number")}  type="text" className="form-control" placeholder="Enter Number" value={number} />
                   <p>Email</p>
-                  <input onChange={this.handleChange("email")}  type="text" className="form-control" placeholder="Enter Email" value={email} />
+                  <input onChange={this.handleChange("email")}  type="text" maxLength="20" className="form-control" placeholder="Enter Email" value={email} />
                   <input onClick={this.clickSubmit} className="button" type="submit" value="Add Restaurant" />
               </form>
             </div>
