@@ -37,7 +37,7 @@ class Body extends Component{
                 }
             });
             const citys = await res.json();
-            console.log(citys);
+            //console.log(citys);
             await this.setState({ citys: citys, redirectToSeach: true });
 
           

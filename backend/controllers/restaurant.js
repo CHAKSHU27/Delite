@@ -15,10 +15,10 @@ exports.restDetails= async(req,res)=>{
     res.status(200).json({message:'Restaurant details stored Successsfully!'}) 
 }
 
-exports.allRestDetails = (req,res) =>{
-    const rest =Restaurant.find().select('address restName')
-    .then((rest) => {
-        res.json({rest})
-    })
-    .catch((err)=> console.log(err))
-}
+// exports.allRestDetails = (req,res) =>{
+//     const rest =Restaurant.find().select('address restName')
+//     .then((rest) => {
+//         res.json({rest})
+//     })
+//     .catch((err)=> console.log(err))
+// }
