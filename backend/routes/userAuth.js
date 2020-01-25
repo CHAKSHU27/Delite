@@ -8,6 +8,6 @@ router.post('/signup',userSignupValidator,signUp);
 router.post('/login',userLoginValidator,logIn);
 router.get('/logout',logOut);
 
-router.param("userId",userById)
+// router.param("userId",userById)
 
 module.exports=router

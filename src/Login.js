@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './logSign.css';
+import {Redirect} from 'react-router-dom';
 class Login extends Component
 {
   constructor(props)
@@ -17,21 +18,31 @@ class Login extends Component
     this.setState({error:""})
     this.setState({[name]:event.target.value})
   }
+  authenticate=(jwt,next)=>{
+    if(typeof window!=="undefined"){
+      localStorage.setItem("jwt",JSON.stringify(jwt))
+      next();
+    }
+  }
   clickSubmit=event=>{
     event.preventDefault()
-    const {email,password}=this.state
+    const {email,password,error}=this.state
     const User={
       email,
-      password
+      password,
+      error
     };
     this.login(User).then(data=>{
       if(data.error) this.setState({error:data.error});
-      else this.setState({
-        error:"",
-        email:"",
-        password:"",
-        open:true
-      });
+      else {
+this.authenticate(data,()=>{
+  this.setState({error:"",
+  email:"",
+  password:"",
+  open:true
+})
+})
+    }
     })
   }
 
@@ -53,7 +64,7 @@ class Login extends Component
     render()
     {
       const{error,email,password,open}=this.state
-                   return (
+      return (
                 <div>
                   <div className="loginbox">
                     <h1 className='mt-5 mb-5'><b>Login Here</b></h1>

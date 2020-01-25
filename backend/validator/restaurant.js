@@ -1,7 +1,7 @@
 exports.restDetailsValidator=(req,res,next)=>{
-    req.check('restName','Name is required').notEmpty();
-    req.check('address','address is required')
-    .notEmpty()
+    req.check('restName','Restaurant Name is required').notEmpty();
+    req.check('address','Address is required').notEmpty()
+    req.check('address','Address is not correct')
     .isLength({
         min:20,
         max:100

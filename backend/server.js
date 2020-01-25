@@ -19,7 +19,7 @@ mongoose.connection.on('error',err=>{
 });
 
 const authRoutes=require("./routes/userAuth")
-
+const restRoutes=require("./routes/restaurant")
 //middleware
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -27,6 +27,7 @@ app.use(cookieParser());
  app.use(cors())
 app.use(expressValidator());
 app.use('/',authRoutes);
+app.use('/',restRoutes);
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
       res.status(401).json({eror:"Unauthorized!!"});

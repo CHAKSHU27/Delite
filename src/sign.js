@@ -19,12 +19,13 @@ export default class Sign extends Component {
   }
   clickSubmit=event=>{
     event.preventDefault()
-    const {name,email,phone,password}=this.state
+    const {name,email,phone,password,error}=this.state
     const User={
       name,
       email,
       phone,
-      password
+      password,
+      error
     };
     this.signup(User).then(data=>{
       if(data.error) this.setState({error:data.error});

@@ -30,7 +30,7 @@ const restSchema=new mongoose.Schema({
         trim:true,
         required:true
     },
-    phone:{
+    number:{
         type:String,
         trim:true,
         required:true
@@ -40,9 +40,5 @@ const restSchema=new mongoose.Schema({
         trim:true,
         required:true
     },
-    type:{
-        type:String,
-        required:true
-    }
 })
 module.exports=mongoose.model("Restaurant",restSchema);
