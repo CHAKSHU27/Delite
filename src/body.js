@@ -12,10 +12,26 @@ class Body extends Component{
             resname: '',
             citys : null,
             cityname: null,
+            latitude: null,
+            longitude: null,
             redirectToSeach: false
         };
     }
-
+    position = async () => {
+        var  options = {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        };
+        await navigator.geolocation.getCurrentPosition(
+          position => this.setState({ 
+            latitude: position.coords.latitude, 
+            longitude: position.coords.longitude
+          }),
+          err => console.log(err),
+          options
+        );
+      }
     onChangeHandler = () => {
         return async (e) => {
             const { value:cityname } = e.target;
@@ -49,6 +65,12 @@ class Body extends Component{
         if(this.state.citys && this.state.citys.location_suggestions.length !== 0){
             return <Restraunts lat={this.state.citys.location_suggestions[0].latitude} long={this.state.citys.location_suggestions[0].longitude} />
         }
+        else if(this.state.latitude!=null&&this.state.longitude!=null)
+        {
+            return <Restraunts lat={this.state.latitude} long={this.state.longitude} />
+          
+        }
+        else
             return (
                 <div className="container-fluid">
                 <div className="row">
@@ -56,12 +78,14 @@ class Body extends Component{
                   <p className="quote"><span></span><br/>
                  <h3>Search for your favourite restaurants</h3><br/>
                  <form class="example" onSubmit={(e) => e.preventDefault()} >
+                 <button type="sumbit" onClick={this.position}><b>Locate me</b></button>
                   <input type="text" 
                     placeholder="Search.." 
                     name="search"
                     onChange={this.onChangeHandler()}
                     />
-                  <button type="submit" onClick={this.handleSubmit()}><b>Search</b></button></form>
+                  <button type="submit" onClick={this.handleSubmit()}><b>Search</b></button>
+                  </form>
                   <br/><br/>
                   <h2>Want To Promote Your Restaurant?</h2>
                   <a href="/addRestaurant" className="simple-text">Add Your Restaurant here.</a>
