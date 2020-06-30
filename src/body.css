@@ -65,3 +65,10 @@
     font-size:25px;
     color: goldenrod;
 }
+.flexContainer {
+  display: flex;
+}
+
+.inputField {
+  flex: 1;
+}

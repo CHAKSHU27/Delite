@@ -1,6 +1,7 @@
 import React ,{Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import img6 from './components/images/res1.webp';
+import loc from './components/images/images.png';
 import './body.css';
 import Restraunts from './components/Restraunts'
 
@@ -78,13 +79,15 @@ class Body extends Component{
                   <p className="quote"><span></span><br/>
                  <h3>Search for your favourite restaurants</h3><br/>
                  <form class="example" onSubmit={(e) => e.preventDefault()} >
-                 <button type="sumbit" onClick={this.position}><b>Locate me</b></button>
+                 <div className="flexContainer">
+                 <a onClick={this.position} ><img src={loc} height="50" width="50"/></a>
                   <input type="text" 
                     placeholder="Search.." 
                     name="search"
                     onChange={this.onChangeHandler()}
                     />
                   <button type="submit" onClick={this.handleSubmit()}><b>Search</b></button>
+                  </div>
                   </form>
                   <br/><br/>
                   <h2>Want To Promote Your Restaurant?</h2>
